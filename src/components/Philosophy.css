@@ -1,0 +1,122 @@
+.philosophy-section {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--text-dark);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 5rem;
+}
+
+.problem-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 3rem 4rem;
+    /* Extra bottom padding */
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    /* Prevent clipping of the absolutely positioned bottom badge */
+}
+
+.lead-text {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.lead-text strong {
+    display: block;
+    margin-top: 1rem;
+    color: var(--accent-red);
+    font-size: 1.35rem;
+}
+
+.repair-badge {
+    display: inline-block;
+    background: var(--text-dark);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.875rem;
+    transform: translateY(50%);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.phi-card {
+    padding: 2.5rem 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.phi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.phi-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(181, 27, 39, 0.1);
+    border-radius: 16px;
+    color: var(--accent-red);
+}
+
+.phi-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.phi-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .problem-container {
+        padding: 2rem 1.5rem;
+    }
+}

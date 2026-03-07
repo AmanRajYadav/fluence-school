@@ -1,0 +1,358 @@
+/* MATH BACKGROUND CONTAINER */
+.math-bg-container {
+    position: absolute;
+    /* positioned relative to the tall App container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    /* behind all content */
+    overflow: hidden;
+}
+
+/* CHAPTER LABELS */
+.ch {
+    position: absolute;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ccc;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    font-family: var(--font-sans);
+}
+
+.ch.visible {
+    opacity: 1;
+}
+
+/* MATH BASE */
+.math {
+    position: absolute;
+    font-family: var(--font-math);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.math.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.math svg {
+    overflow: visible;
+    display: block;
+}
+
+/* draw-on SVG */
+.dp {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    transition: stroke-dashoffset 1.6s cubic-bezier(.4, 0, .2, 1);
+}
+
+.math.visible .dp {
+    stroke-dashoffset: 0;
+}
+
+/* text write-in */
+.wt {
+    display: inline-block;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1.1s cubic-bezier(.4, 0, .2, 1);
+}
+
+.math.visible .wt {
+    clip-path: inset(0 0% 0 0);
+}
+
+/* underline */
+.ul .dp {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    transition: stroke-dashoffset 0.9s cubic-bezier(.4, 0, .2, 1) 0.7s;
+}
+
+/* label */
+.lbl {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #bbb;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.8s ease 0.2s;
+    font-family: var(--font-sans);
+}
+
+.math.visible .lbl {
+    clip-path: inset(0 0% 0 0);
+}
+
+/* sizes */
+.xl {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.lg {
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+
+.md {
+    font-size: 1.6rem;
+}
+
+.sm {
+    font-size: 1.2rem;
+}
+
+/* colors */
+.dk {
+    color: var(--math-dk);
+}
+
+.bl {
+    color: var(--math-bl);
+}
+
+.rd {
+    color: var(--math-rd);
+}
+
+.gy {
+    color: var(--math-gy);
+}
+
+.gn {
+    color: var(--math-gn);
+}
+
+/* ── POSITIONS ── */
+/* Real Numbers */
+.r1 {
+    top: 106vh;
+    left: 2%;
+}
+
+.r2 {
+    top: 113vh;
+    left: 75%;
+}
+
+.r3 {
+    top: 121vh;
+    left: 4%;
+}
+
+.s1 {
+    top: 127vh;
+    left: 78%;
+}
+
+/* Polynomials */
+.r4 {
+    top: 135vh;
+    left: 3%;
+}
+
+.r5 {
+    top: 142vh;
+    left: 80%;
+}
+
+.r6 {
+    top: 151vh;
+    left: 5%;
+}
+
+.s2 {
+    top: 160vh;
+    left: 75%;
+}
+
+/* Linear Equations */
+.r7 {
+    top: 165vh;
+    left: 4%;
+}
+
+.r8 {
+    top: 172vh;
+    left: 75%;
+}
+
+.s3 {
+    top: 175vh;
+    left: 5%;
+}
+
+/* Quadratic */
+.r9 {
+    top: 185vh;
+    left: 1%;
+}
+
+.r10 {
+    top: 194vh;
+    left: 72%;
+}
+
+.s4 {
+    top: 198vh;
+    left: 3%;
+}
+
+/* AP */
+.r11 {
+    top: 208vh;
+    left: 4%;
+}
+
+.r12 {
+    top: 215vh;
+    left: 80%;
+}
+
+.r13 {
+    top: 223vh;
+    left: 2%;
+}
+
+.s5 {
+    top: 228vh;
+    left: 76%;
+}
+
+/* Coordinate Geometry */
+.r14 {
+    top: 236vh;
+    left: 3%;
+}
+
+.r15 {
+    top: 245vh;
+    left: 78%;
+}
+
+.r16 {
+    top: 253vh;
+    left: 2%;
+}
+
+.s6 {
+    top: 257vh;
+    left: 80%;
+}
+
+/* Trigonometry */
+.r17 {
+    top: 266vh;
+    left: 4%;
+}
+
+.r18 {
+    top: 274vh;
+    left: 76%;
+}
+
+.r19 {
+    top: 282vh;
+    left: 3%;
+}
+
+.s7 {
+    top: 286vh;
+    left: 79%;
+}
+
+/* Circles */
+.r20 {
+    top: 295vh;
+    left: 3%;
+}
+
+.r21 {
+    top: 302vh;
+    left: 80%;
+}
+
+/* Statistics */
+.r22 {
+    top: 313vh;
+    left: 5%;
+}
+
+.r23 {
+    top: 321vh;
+    left: 75%;
+}
+
+.r24 {
+    top: 329vh;
+    left: 2%;
+}
+
+.s8 {
+    top: 332vh;
+    left: 80%;
+}
+
+/* Probability */
+.r25 {
+    top: 343vh;
+    left: 4%;
+}
+
+.r26 {
+    top: 350vh;
+    left: 78%;
+}
+
+/* chapter label positions */
+.c1 {
+    top: 104vh;
+}
+
+.c2 {
+    top: 153vh;
+}
+
+.c3 {
+    top: 202vh;
+}
+
+.c4 {
+    top: 237vh;
+}
+
+.c5 {
+    top: 273vh;
+}
+
+.c6 {
+    top: 321vh;
+}
+
+.c7 {
+    top: 371vh;
+}
+
+.c8 {
+    top: 418vh;
+}
+
+.c9 {
+    top: 449vh;
+}
+
+.c10 {
+    top: 498vh;
+}

@@ -1,0 +1,49 @@
+.site-footer {
+    background-color: #0b0b0c;
+    /* Deep blackish hue matching screenshot */
+    color: #6a6a75;
+    /* Subdued text */
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 10;
+    font-family: var(--font-sans);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+        /* keep inner text centered if stacked, but items spread */
+    }
+}
+
+.footer-logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.footer-address {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-address p {
+    margin: 0;
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}

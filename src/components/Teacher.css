@@ -1,0 +1,105 @@
+.teacher-section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background: #fff;
+    position: relative;
+    z-index: 10;
+}
+
+.teacher-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    /* Slightly wider content side */
+    gap: 5rem;
+    align-items: center;
+}
+
+.teacher-image-col {
+    position: relative;
+}
+
+.teacher-image-wrapper {
+    position: relative;
+    background: #111;
+    /* Dark placeholder color backing */
+    aspect-ratio: 4 / 5;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
+}
+
+.teacher-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    /* Slight moody effect */
+    filter: grayscale(20%) contrast(110%);
+    /* Add a bit of premium edge to standard photos */
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--accent-red);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.experience-badge .years {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.experience-badge .text {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    line-height: 1.2;
+}
+
+.teacher-content-col .section-subtitle {
+    margin-bottom: 1rem;
+}
+
+.teacher-content-col .section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    color: var(--text-dark);
+}
+
+.philosophy-quote {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    line-height: 1.6;
+    color: var(--text-muted);
+    padding-left: 2rem;
+    border-left: 4px solid var(--accent-red);
+}
+
+.philosophy-quote strong {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+@media (max-width: 900px) {
+    .teacher-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .teacher-image-wrapper {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,134 @@
+:root {
+  /* Colors */
+  --bg-color: #FAFAF8;
+  --bg-grid: rgba(216, 216, 216, 0.15);
+  --text-dark: #0d0d1a;
+  --text-muted: #777777;
+  --accent-red: #B51B27; /* Matching the hoodie color */
+  --accent-red-hover: #961620;
+  --accent-blue: #1a3a6e;
+  
+  /* Math Whiteboard Colors */
+  --math-dk: #0d0d1a;
+  --math-bl: #1a3a6e;
+  --math-rd: #7a1a1a;
+  --math-gy: #555555;
+  --math-gn: #1a5c3a;
+  
+  /* Typography */
+  --font-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-math: 'Caveat', cursive;
+  
+  /* Spacing */
+  --section-padding: 6rem 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background grid effect */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(transparent, transparent 39px, var(--bg-grid) 39px, var(--bg-grid) 40px);
+  pointer-events: none;
+  z-index: -2; /* ensure it's at the very back */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 10; /* above the whiteboard */
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(250, 250, 248, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+}
+
+/* Shared Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-red);
+  color: white;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(181, 27, 39, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--accent-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(181, 27, 39, 0.4);
+}
+
+/* App structure */
+.app-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }

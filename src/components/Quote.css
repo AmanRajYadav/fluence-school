@@ -1,0 +1,53 @@
+.quote-strip-section {
+    position: relative;
+    padding: 2rem 2rem 4rem;
+    /* Adjusted padding to fit nicely below hero */
+    z-index: 10;
+}
+
+.quote-strip {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    border-left: 4px solid var(--accent-red);
+}
+
+.quote-text {
+    font-family: var(--font-sans);
+    /* Use professional sans-serif */
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.quote-text .highlight-text {
+    font-weight: 800;
+    color: var(--accent-red);
+}
+
+.quote-author {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Hide line break on smaller screens to allow natural text flow */
+@media (max-width: 768px) {
+    .desktop-break {
+        display: none;
+    }
+
+    .quote-strip {
+        padding: 2rem;
+    }
+}

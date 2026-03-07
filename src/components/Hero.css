@@ -1,0 +1,263 @@
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem 4rem;
+    /* Top padding for header */
+    /* Top padding for the header */
+    z-index: 10;
+    /* Above the whiteboard */
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8rem;
+    /* Increased gap for breathing space */
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 550px;
+    /* Slightly narrower to allow more space on the right */
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    background: rgba(181, 27, 39, 0.08);
+    color: var(--accent-red);
+    border-radius: 8px;
+    /* Slightly squarer like the screenshot */
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-red);
+    box-shadow: 0 0 10px rgba(181, 27, 39, 0.5);
+}
+
+.hero-title {
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    /* Larger title */
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.highlight {
+    color: var(--accent-red);
+    position: relative;
+    display: inline-block;
+}
+
+/* Subtle underline for 'understanding' */
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--accent-red);
+    opacity: 0.2;
+    z-index: -1;
+    transform: translateY(-4px) rotate(-1deg);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    max-width: 500px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-item {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.hero-contact {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 1.5rem;
+    border-left: 4px solid var(--accent-red);
+}
+
+.call-text {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.call-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* Center the image in its col */
+    align-items: flex-end;
+    /* Align to bottom so nothing floats */
+    position: relative;
+    align-self: stretch;
+    /* Stretch to fill container height */
+}
+
+.hero-image-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(circle, rgba(230, 230, 230, 0.8) 0%, rgba(250, 250, 248, 0) 70%);
+    filter: blur(20px);
+    z-index: -1;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: 95vh;
+    /* Increased height to enlarge image */
+    max-height: 950px;
+    object-fit: contain;
+    object-position: bottom center;
+    /* Keep image anchored to bottom */
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.22));
+    margin-bottom: -4rem;
+    transform: scale(1.15);
+    /* Scale up visually */
+    transform-origin: bottom center;
+    z-index: 1;
+    position: relative;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--font-sans);
+}
+
+.mouse-icon {
+    width: 24px;
+    height: 38px;
+    border: 2px solid var(--text-muted);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--accent-red);
+    border-radius: 2px;
+    animation: scrollMouse 1.5s infinite;
+}
+
+@keyframes scrollMouse {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(12px);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 968px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .highlight::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        min-width: unset;
+        width: 100%;
+    }
+}

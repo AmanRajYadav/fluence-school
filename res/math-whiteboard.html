@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 10 Math — Whiteboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #FAFAF8;
+    font-family: 'Caveat', cursive;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: repeating-linear-gradient(transparent, transparent 39px, #d8d8d828 39px, #d8d8d828 40px);
+    pointer-events: none; z-index: 0;
+  }
+  .page { position: relative; width: 100%; min-height: 700vh; z-index: 1; }
+
+  /* HERO */
+  .hero {
+    position: sticky; top: 0; height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10; pointer-events: none;
+  }
+  .hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .hero .tag { font-size: 1rem; color: #bbb; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; opacity:0; animation: fadeUp 1s ease 0.1s forwards; }
+  .hero h1 { font-size: clamp(2.8rem,6vw,5.5rem); font-weight: 700; color: #0d0d1a; line-height: 1.1; opacity:0; animation: fadeUp 1s ease 0.3s forwards; }
+  .hero p  { font-size: clamp(1.1rem,2vw,1.6rem); color: #777; margin-top: 14px; opacity:0; animation: fadeUp 1s ease 0.7s forwards; }
+
+  /* CHAPTER LABELS */
+  .ch {
+    position: absolute; font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: #ccc;
+    left: 50%; transform: translateX(-50%);
+    opacity: 0; transition: opacity 0.8s ease;
+  }
+  .ch.visible { opacity: 1; }
+
+  /* MATH BASE */
+  .math {
+    position: absolute; font-family: 'Caveat', cursive;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .math.visible { opacity: 1; transform: translateY(0); }
+  .math svg { overflow: visible; display: block; }
+
+  /* draw-on SVG */
+  .dp {
+    stroke-dasharray: 2000; stroke-dashoffset: 2000;
+    transition: stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1);
+  }
+  .math.visible .dp { stroke-dashoffset: 0; }
+
+  /* text write-in */
+  .wt {
+    display: inline-block;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1.1s cubic-bezier(.4,0,.2,1);
+  }
+  .math.visible .wt { clip-path: inset(0 0% 0 0); }
+
+  /* underline */
+  .ul .dp { stroke-dasharray: 400; stroke-dashoffset: 400; transition: stroke-dashoffset 0.9s cubic-bezier(.4,0,.2,1) 0.7s; }
+
+  /* label */
+  .lbl { font-size:0.85rem; letter-spacing:1px; color:#bbb; text-transform:uppercase; margin-bottom:3px; clip-path:inset(0 100% 0 0); transition: clip-path 0.8s ease 0.2s; }
+  .math.visible .lbl { clip-path: inset(0 0% 0 0); }
+
+  /* sizes */
+  .xl  { font-size: 2.8rem; font-weight: 700; }
+  .lg  { font-size: 2.1rem; font-weight: 600; }
+  .md  { font-size: 1.6rem; }
+  .sm  { font-size: 1.2rem; }
+
+  /* colors */
+  .dk  { color: #0d0d1a; }
+  .bl  { color: #1a3a6e; }
+  .rd  { color: #7a1a1a; }
+  .gy  { color: #555;    }
+  .gn  { color: #1a5c3a; }
+
+  /* ── POSITIONS ── */
+  /* Real Numbers */
+  .r1 { top:108vh; left:4%;  }  .r2 { top:120vh; left:52%; }  .r3 { top:134vh; left:20%; }
+  /* SVG diagram */
+  .s1 { top:143vh; left:68%; }
+  /* Polynomials */
+  .r4 { top:157vh; left:5%;  }  .r5 { top:168vh; left:50%; }  .r6 { top:183vh; left:25%; }
+  /* s2 diagram */
+  .s2 { top:198vh; left:68%; }
+  /* Linear Equations */
+  .r7 { top:207vh; left:5%;  }  .r8 { top:219vh; left:48%; }
+  .s3 { top:224vh; left:25%; }
+  /* Quadratic */
+  .r9  { top:241vh; left:7%;  }  .r10 { top:256vh; left:46%; }
+  .s4  { top:262vh; left:6%;  }
+  /* AP */
+  .r11 { top:278vh; left:5%;  }  .r12 { top:290vh; left:49%; }  .r13 { top:304vh; left:20%; }
+  .s5  { top:312vh; left:67%; }
+  /* Coordinate Geometry */
+  .r14 { top:326vh; left:5%;  }  .r15 { top:340vh; left:46%; }  .r16 { top:354vh; left:16%; }
+  .s6  { top:360vh; left:67%; }
+  /* Trigonometry */
+  .r17 { top:376vh; left:5%;  }  .r18 { top:388vh; left:49%; }  .r19 { top:402vh; left:18%; }
+  .s7  { top:408vh; left:67%; }
+  /* Circles */
+  .r20 { top:423vh; left:7%;  }  .r21 { top:435vh; left:50%; }
+  /* Statistics */
+  .r22 { top:454vh; left:5%;  }  .r23 { top:467vh; left:43%; }  .r24 { top:481vh; left:10%; }
+  .s8  { top:486vh; left:67%; }
+  /* Probability */
+  .r25 { top:503vh; left:7%;  }  .r26 { top:516vh; left:49%; }
+
+  /* chapter label positions */
+  .c1  { top:104vh; } .c2  { top:153vh; } .c3  { top:202vh; }
+  .c4  { top:237vh; } .c5  { top:273vh; } .c6  { top:321vh; }
+  .c7  { top:371vh; } .c8  { top:418vh; } .c9  { top:449vh; }
+  .c10 { top:498vh; }
+
+  /* scroll hint */
+  .hint { position:fixed; bottom:36px; left:50%; transform:translateX(-50%); font-size:1rem; color:#bbb; display:flex; flex-direction:column; align-items:center; gap:6px; opacity:0; animation:fadeUp 1s ease 1.6s forwards; z-index:100; transition:opacity 0.5s; }
+  .arr  { width:18px; height:18px; border-right:2px solid #ccc; border-bottom:2px solid #ccc; transform:rotate(45deg); animation:bounce 1.4s ease infinite; }
+
+  @keyframes fadeUp  { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes bounce  { 0%,100%{opacity:0.3;transform:rotate(45deg) translateY(0)} 50%{opacity:1;transform:rotate(45deg) translateY(4px)} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero"><div class="hero-inner">
+    <div class="tag">Class 10 Mathematics</div>
+    <h1>Every formula<br>has a reason.</h1>
+    <p>Scroll to discover them.</p>
+  </div></div>
+
+  <!-- CHAPTER LABELS -->
+  <div class="ch c1">① Real Numbers</div>
+  <div class="ch c2">② Polynomials</div>
+  <div class="ch c3">③ Linear Equations</div>
+  <div class="ch c4">④ Quadratic Equations</div>
+  <div class="ch c5">⑤ Arithmetic Progressions</div>
+  <div class="ch c6">⑥ Coordinate Geometry</div>
+  <div class="ch c7">⑦ Trigonometry</div>
+  <div class="ch c8">⑧ Areas &amp; Circles</div>
+  <div class="ch c9">⑨ Statistics</div>
+  <div class="ch c10">⑩ Probability</div>
+
+  <!-- ═══ REAL NUMBERS ═══ -->
+  <div class="math r1 dk xl"><div class="lbl">Fundamental Theorem</div><div class="wt">x = p₁ · p₂ · … · pₙ</div><svg class="ul" width="300" height="12"><path class="dp" d="M 0 8 C 80 2 200 13 300 7" stroke="#0d0d1a" stroke-width="1.5" fill="none"/></svg></div>
+  <div class="math r2 bl lg"><div class="lbl">HCF × LCM</div><div class="wt">HCF(a,b) × LCM(a,b) = a × b</div></div>
+  <div class="math r3 gy md"><div class="lbl">Primes in ascending order</div><div class="wt">p₁ ≤ p₂ ≤ p₃ ≤ … ≤ pₙ</div></div>
+
+  <!-- number line SVG -->
+  <div class="math s1"><svg width="160" height="50" viewBox="0 0 160 50"><path class="dp" d="M 5 25 L 155 25" stroke="#1a3a6e" stroke-width="2" fill="none" style="stroke-dasharray:300;stroke-dashoffset:300"/><path class="dp" d="M 40 18 L 40 32" stroke="#1a3a6e" stroke-width="1.5" fill="none" style="stroke-dasharray:30;stroke-dashoffset:30"/><path class="dp" d="M 80 18 L 80 32" stroke="#1a3a6e" stroke-width="1.5" fill="none" style="stroke-dasharray:30;stroke-dashoffset:30"/><path class="dp" d="M 120 18 L 120 32" stroke="#1a3a6e" stroke-width="1.5" fill="none" style="stroke-dasharray:30;stroke-dashoffset:30"/></svg><div class="wt" style="font-size:1.1rem;color:#1a3a6e;text-align:center">ℤ ⊂ ℚ ⊂ ℝ</div></div>
+
+  <!-- ═══ POLYNOMIALS ═══ -->
+  <div class="math r4 dk xl"><div class="lbl">Quadratic — sum of zeroes</div><div class="wt">α + β = −b/a</div></div>
+  <div class="math r5 bl lg"><div class="lbl">Quadratic — product of zeroes</div><div class="wt">α · β = c/a</div></div>
+  <div class="math r6 rd md"><div class="lbl">Cubic zeroes</div><div class="wt">α + β + γ = −b/a</div><div class="wt" style="margin-top:5px">αβ + βγ + γα = c/a</div><div class="wt" style="margin-top:5px">αβγ = −d/a</div></div>
+
+  <!-- curve SVG -->
+  <div class="math s2"><svg width="160" height="110" viewBox="0 0 160 110"><path class="dp" d="M 5 100 L 155 100" stroke="#888" stroke-width="1.5" fill="none" style="stroke-dasharray:200;stroke-dashoffset:200"/><path class="dp" d="M 80 5 L 80 105" stroke="#888" stroke-width="1.5" fill="none" style="stroke-dasharray:150;stroke-dashoffset:150"/><path class="dp" d="M 10 95 Q 80 5 150 95" stroke="#7a1a1a" stroke-width="3" fill="none" style="stroke-dasharray:350;stroke-dashoffset:350"/></svg><div class="wt" style="font-size:1rem;color:#7a1a1a;text-align:center">ax² + bx + c</div></div>
+
+  <!-- ═══ LINEAR EQUATIONS ═══ -->
+  <div class="math r7 dk lg"><div class="lbl">Unique solution</div><div class="wt">a₁/a₂ ≠ b₁/b₂</div></div>
+  <div class="math r8 bl md"><div class="lbl">∞ many / no solution</div><div class="wt">∞ sols: a₁/a₂ = b₁/b₂ = c₁/c₂</div><div class="wt" style="margin-top:6px">No sol: a₁/a₂ = b₁/b₂ ≠ c₁/c₂</div></div>
+
+  <!-- intersecting lines -->
+  <div class="math s3"><svg width="140" height="140" viewBox="0 0 140 140"><path class="dp" d="M 5 125 L 135 15" stroke="#1a3a6e" stroke-width="2.5" fill="none" style="stroke-dasharray:360;stroke-dashoffset:360"/><path class="dp" d="M 5 15 L 135 125" stroke="#7a1a1a" stroke-width="2.5" fill="none" style="stroke-dasharray:360;stroke-dashoffset:360"/></svg><div class="wt" style="font-size:1rem;color:#555;text-align:center">one solution</div></div>
+
+  <!-- ═══ QUADRATIC ═══ -->
+  <div class="math r9 dk xl"><div class="lbl">Quadratic Formula</div><div class="wt">x = (−b ± √(b²−4ac)) / 2a</div><svg class="ul" width="400" height="12"><path class="dp" d="M 0 8 C 100 2 270 14 400 7" stroke="#0d0d1a" stroke-width="1.5" fill="none"/></svg></div>
+  <div class="math r10 bl lg"><div class="lbl">Discriminant</div><div class="wt">D = b² − 4ac</div><div class="wt sm gy" style="margin-top:6px">D &gt; 0 → 2 distinct real roots</div><div class="wt sm gy" style="margin-top:4px">D = 0 → 1 equal root</div><div class="wt sm gy" style="margin-top:4px">D &lt; 0 → no real roots</div></div>
+
+  <!-- parabola -->
+  <div class="math s4"><svg width="180" height="130" viewBox="0 0 180 130"><path class="dp" d="M 10 120 L 170 120" stroke="#888" stroke-width="1.5" fill="none" style="stroke-dasharray:250;stroke-dashoffset:250"/><path class="dp" d="M 90 10 L 90 125" stroke="#888" stroke-width="1.5" fill="none" style="stroke-dasharray:180;stroke-dashoffset:180"/><path class="dp" d="M 20 115 Q 90 5 160 115" stroke="#7a1a1a" stroke-width="3" fill="none" style="stroke-dasharray:400;stroke-dashoffset:400"/></svg><div class="wt" style="font-size:1.4rem;color:#7a1a1a;text-align:center">y = ax² + bx + c</div></div>
+
+  <!-- ═══ AP ═══ -->
+  <div class="math r11 dk xl"><div class="lbl">nth Term</div><div class="wt">aₙ = a + (n−1)d</div></div>
+  <div class="math r12 bl lg"><div class="lbl">Sum of n terms</div><div class="wt">Sₙ = n/2 · [2a + (n−1)d]</div></div>
+  <div class="math r13 gn md"><div class="lbl">Useful variants</div><div class="wt">Sₙ = n/2 · (a + l)</div><div class="wt" style="margin-top:6px">1+2+…+n = n(n+1)/2</div><div class="wt" style="margin-top:6px">AM of a,c = (a+c)/2</div></div>
+
+  <!-- AP dots -->
+  <div class="math s5"><svg width="200" height="50" viewBox="0 0 200 50"><path class="dp" d="M 5 25 L 195 25" stroke="#1a5c3a" stroke-width="1.5" fill="none" style="stroke-dasharray:280;stroke-dashoffset:280"/><path class="dp" d="M 20 18 L 20 32" stroke="#1a5c3a" stroke-width="2" fill="none" style="stroke-dasharray:30;stroke-dashoffset:30"/><path class="dp" d="M 60 18 L 60 32" stroke="#1a5c3a" stroke-width="2" fill="none" style="stroke-dasharray:30;stroke-dashoffset:30"/><path class="dp" d="M 100 18 L 100 32" stroke="#1a5c3a" stroke-width="2" fill="none" style="stroke-dasharray:30;stroke-dashoffset:30"/><path class="dp" d="M 140 18 L 140 32" stroke="#1a5c3a" stroke-width="2" fill="none" style="stroke-dasharray:30;stroke-dashoffset:30"/><path class="dp" d="M 180 18 L 180 32" stroke="#1a5c3a" stroke-width="2" fill="none" style="stroke-dasharray:30;stroke-dashoffset:30"/></svg><div class="wt" style="font-size:1rem;color:#1a5c3a;text-align:center">a, a+d, a+2d, a+3d…</div></div>
+
+  <!-- ═══ COORDINATE GEOMETRY ═══ -->
+  <div class="math r14 dk xl"><div class="lbl">Distance Formula</div><div class="wt">PQ = √[(x₂−x₁)² + (y₂−y₁)²]</div><svg class="ul" width="440" height="12"><path class="dp" d="M 0 8 C 110 2 290 14 440 7" stroke="#0d0d1a" stroke-width="1.5" fill="none"/></svg></div>
+  <div class="math r15 bl lg"><div class="lbl">Section Formula (internal)</div><div class="wt">x = (m₁x₂ + m₂x₁) / (m₁+m₂)</div><div class="wt" style="margin-top:6px">y = (m₁y₂ + m₂y₁) / (m₁+m₂)</div></div>
+  <div class="math r16 rd md"><div class="lbl">Midpoint</div><div class="wt">M = ((x₁+x₂)/2 , (y₁+y₂)/2)</div></div>
+
+  <!-- axes + two points -->
+  <div class="math s6"><svg width="150" height="150" viewBox="0 0 150 150"><path class="dp" d="M 10 140 L 145 140" stroke="#555" stroke-width="1.5" fill="none" style="stroke-dasharray:180;stroke-dashoffset:180"/><path class="dp" d="M 20 5 L 20 145" stroke="#555" stroke-width="1.5" fill="none" style="stroke-dasharray:180;stroke-dashoffset:180"/><path class="dp" d="M 35 120 L 130 40" stroke="#1a3a6e" stroke-width="2" fill="none" style="stroke-dasharray:180;stroke-dashoffset:180"/><path class="dp" d="M 35 114 L 35 126 L 47 126" stroke="#7a1a1a" stroke-width="1.5" fill="none" style="stroke-dasharray:60;stroke-dashoffset:60"/></svg><div class="wt" style="font-size:1rem;color:#555;text-align:center">P(x₁,y₁) → Q(x₂,y₂)</div></div>
+
+  <!-- ═══ TRIGONOMETRY ═══ -->
+  <div class="math r17 dk xl"><div class="lbl">Pythagorean Identity</div><div class="wt">sin²A + cos²A = 1</div><svg class="ul" width="280" height="12"><path class="dp" d="M 0 8 C 70 2 190 14 280 8" stroke="#0d0d1a" stroke-width="1.5" fill="none"/></svg></div>
+  <div class="math r18 bl lg"><div class="lbl">Reciprocal relations</div><div class="wt">cosec A = 1/sin A</div><div class="wt" style="margin-top:6px">sec A = 1/cos A</div><div class="wt" style="margin-top:6px">tan A = sin A / cos A</div></div>
+  <div class="math r19 rd md"><div class="lbl">Other identities</div><div class="wt">1 + tan²A = sec²A</div><div class="wt" style="margin-top:6px">cot²A + 1 = cosec²A</div></div>
+
+  <!-- right triangle -->
+  <div class="math s7"><svg width="155" height="135" viewBox="0 0 155 135"><path class="dp" d="M 10 125 L 145 125 L 10 15 Z" stroke="#0d0d1a" stroke-width="2.5" fill="none" style="stroke-dasharray:500;stroke-dashoffset:500"/><path class="dp" d="M 10 115 L 20 115 L 20 125" stroke="#0d0d1a" stroke-width="1.5" fill="none" style="stroke-dasharray:50;stroke-dashoffset:50"/></svg><div class="wt" style="font-size:1rem;color:#555;text-align:center">sin = opp/hyp</div></div>
+
+  <!-- ═══ CIRCLES ═══ -->
+  <div class="math r20 dk xl"><div class="lbl">Area of sector</div><div class="wt">Area = (θ/360°) × πr²</div></div>
+  <div class="math r21 bl lg"><div class="lbl">Arc length</div><div class="wt">l = (θ/360°) × 2πr</div></div>
+
+  <!-- ═══ STATISTICS ═══ -->
+  <div class="math r22 dk xl"><div class="lbl">Mean — Direct Method</div><div class="wt">x̄ = Σfᵢxᵢ / Σfᵢ</div></div>
+  <div class="math r23 bl lg"><div class="lbl">Mode (grouped data)</div><div class="wt">Mode = l + [(f₁−f₀)/(2f₁−f₀−f₂)] × h</div></div>
+  <div class="math r24 gn md"><div class="lbl">Median (grouped data)</div><div class="wt">Median = l + [(n/2 − cf)/f] × h</div></div>
+
+  <!-- histogram bars -->
+  <div class="math s8"><svg width="150" height="110" viewBox="0 0 150 110"><path class="dp" d="M 10 100 L 140 100" stroke="#555" stroke-width="1.5" fill="none" style="stroke-dasharray:180;stroke-dashoffset:180"/><path class="dp" d="M 20 100 L 20 70 L 45 70 L 45 100" stroke="#1a5c3a" stroke-width="2" fill="none" style="stroke-dasharray:200;stroke-dashoffset:200"/><path class="dp" d="M 45 100 L 45 40 L 70 40 L 70 100" stroke="#1a5c3a" stroke-width="2" fill="none" style="stroke-dasharray:220;stroke-dashoffset:220"/><path class="dp" d="M 70 100 L 70 55 L 95 55 L 95 100" stroke="#1a5c3a" stroke-width="2" fill="none" style="stroke-dasharray:210;stroke-dashoffset:210"/><path class="dp" d="M 95 100 L 95 80 L 120 80 L 120 100" stroke="#1a5c3a" stroke-width="2" fill="none" style="stroke-dasharray:180;stroke-dashoffset:180"/></svg><div class="wt" style="font-size:1rem;color:#555;text-align:center">frequency distribution</div></div>
+
+  <!-- ═══ PROBABILITY ═══ -->
+  <div class="math r25 dk xl"><div class="lbl">Classical Probability</div><div class="wt">P(E) = favourable / total outcomes</div><svg class="ul" width="420" height="12"><path class="dp" d="M 0 8 C 110 2 280 14 420 7" stroke="#0d0d1a" stroke-width="1.5" fill="none"/></svg></div>
+  <div class="math r26 bl lg"><div class="lbl">Complementary events</div><div class="wt">P(E) + P(Ē) = 1</div><div class="wt" style="margin-top:6px">0 ≤ P(E) ≤ 1</div></div>
+
+</div>
+
+<div class="hint" id="hint">scroll <div class="arr"></div></div>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        setTimeout(() => el.classList.add('visible'), parseInt(el.dataset.d||0));
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.math, .ch').forEach((el,i) => {
+    el.dataset.d = (i % 4) * 60;
+    io.observe(el);
+  });
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('hint').style.opacity = '0';
+  }, { once: true });
+
+  window.addEventListener('scroll', () => {
+    const sy = window.scrollY;
+    document.querySelectorAll('.math.visible').forEach((el, i) => {
+      el.style.transform = `translateY(${sy * (i%2===0 ? 0.025 : -0.018)}px)`;
+    });
+  });
+</script>
+</body>
+</html>

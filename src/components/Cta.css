@@ -1,0 +1,105 @@
+.cta-section {
+    background-color: #d11327;
+    /* Deep vibrant red matching screenshot */
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+.cta-background-word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(8rem, 25vw, 30rem);
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03);
+    /* Extremely faint dark word behind */
+    line-height: 1;
+    z-index: 1;
+    pointer-events: none;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta-dark-badge {
+    background-color: #0d0d1a;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-sans);
+}
+
+.badge-line-1 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.badge-line-2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffdce0;
+}
+
+.cta-title {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 2rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cta-desc {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.cta-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.call-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.phone-number {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: white;
+    transition: transform 0.3s ease;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.phone-number:hover {
+    transform: scale(1.05);
+}
