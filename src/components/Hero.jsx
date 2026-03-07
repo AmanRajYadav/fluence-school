@@ -43,13 +43,6 @@ const Hero = () => {
 
             </div>
 
-            {/* Scroll indicator */}
-            <div className="scroll-indicator animate-fade-up delay-400">
-                <span>Discover the Reason</span>
-                <div className="mouse-icon">
-                    <div className="wheel"></div>
-                </div>
-            </div>
         </section>
     );
 };
