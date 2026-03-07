@@ -1,6 +1,6 @@
 .teacher-section {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: var(--section-padding, 8rem);
+    padding-bottom: var(--section-padding, 8rem);
     background: #fff;
     position: relative;
     z-index: 10;
@@ -71,8 +71,8 @@
 }
 
 .teacher-content-col .section-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 3rem;
+    font-size: clamp(2rem, 8vw, 4rem);
+    margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: -1px;
     line-height: 1.1;
