@@ -10,8 +10,15 @@
 
 @media (max-width: 768px) {
     .hero-section {
-        padding: 6rem 1.5rem 2rem;
+        padding: 6rem 1.5rem 8rem;
         min-height: auto;
+    }
+
+    .hero-image {
+        height: 60vh;
+        max-height: 400px;
+        transform: scale(1);
+        margin-bottom: 0;
     }
 }
 
@@ -235,7 +242,7 @@
 
 @media (max-width: 968px) {
     .hero-container {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
         gap: 3rem;
     }
