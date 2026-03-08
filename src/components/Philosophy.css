@@ -116,6 +116,11 @@
 }
 
 @media (max-width: 768px) {
+    .philosophy-section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
     .problem-container {
         padding: 2rem 1.5rem;
     }
