@@ -4,6 +4,7 @@ import Quote from './components/Quote';
 import Philosophy from './components/Philosophy';
 import Values from './components/Values';
 import ClassDetails from './components/ClassDetails';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Philosophy />
         <Values />
         <ClassDetails />
+        <Footer />
       </main>
     </div>
   );
