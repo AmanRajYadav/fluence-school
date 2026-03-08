@@ -31,7 +31,7 @@ const Hero = () => {
                         <a href="#philosophy" className="btn-primary">Explore Philosophy</a>
                         <div className="hero-contact glass-panel">
                             <span className="call-text">To Enquire Call:</span>
-                            <span className="call-number">777-1000-453</span>
+                            <span className="call-number">7999-502-978</span>
                         </div>
                     </div>
                 </div>

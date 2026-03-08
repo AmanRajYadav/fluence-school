@@ -17,7 +17,7 @@ const Cta = () => {
                 </p>
                 <div className="cta-contact">
                     <span className="call-label">CALL NOW</span>
-                    <a href="tel:7771000453" className="phone-number">777-1000-453</a>
+                    <a href="tel:7999502978" className="phone-number">7999-502-978</a>
                 </div>
             </div>
         </section>

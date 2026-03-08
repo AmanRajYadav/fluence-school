@@ -60,7 +60,7 @@ const ClassDetails = () => {
                     </div>
 
                     <div className="cta-wrapper">
-                        <a href="tel:7771000453" className="btn-primary pulse-btn">Call 777-1000-453 to Enquire</a>
+                        <a href="tel:7999502978" className="btn-primary pulse-btn">Call 7999-502-978 to Enquire</a>
                         <p className="address">Rajaswa Colony, Near Mark Hospital, Sarkanda, Bilaspur</p>
                     </div>
                 </div>
