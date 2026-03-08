@@ -10,7 +10,7 @@
 
 @media (max-width: 768px) {
     .hero-section {
-        padding: 6rem 1.5rem 8rem;
+        padding: 6rem 1.5rem 0;
         min-height: auto;
     }
 
@@ -18,7 +18,8 @@
         height: 60vh;
         max-height: 400px;
         transform: scale(1);
-        margin-bottom: 0;
+        margin-bottom: -3rem;
+        /* Pulling the hoodie deliberately past the edge */
     }
 }
 
