@@ -181,6 +181,10 @@
 }
 
 @media (max-width: 768px) {
+    .class-details-section {
+        padding-top: 2rem;
+    }
+
     .details-grid {
         grid-template-columns: 1fr;
     }

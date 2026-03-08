@@ -47,8 +47,8 @@
     }
 
     .quote-strip-section {
-        margin-top: -2rem;
-        /* Overlap effect */
+        margin-top: -0.5rem;
+        /* Overlap effect reduced */
         padding: 0 1.5rem 4rem;
     }
 
