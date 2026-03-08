@@ -57,6 +57,10 @@ const ClassDetails = () => {
                             <span className="meta-label">Schedule</span>
                             <span className="meta-value">Mon-Fri | 5-6:30 PM & 6:30-8 PM</span>
                         </div>
+                        <div className="meta-item">
+                            <span className="meta-label">Fees</span>
+                            <span className="meta-value">2500/- per month</span>
+                        </div>
                     </div>
 
                     <div className="cta-wrapper">
