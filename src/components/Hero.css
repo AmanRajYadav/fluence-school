@@ -199,7 +199,7 @@
     .hero-container {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
+        gap: 0.5rem;
     }
 
     .hero-content {
@@ -230,6 +230,10 @@
         background: #ffffff;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-image-wrapper {
+        margin-top: -1.5rem;
     }
 
     .highlight::after {
