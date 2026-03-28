@@ -13,7 +13,7 @@ const Cta = () => {
                     IS YOUR CHILD ONE?
                 </h2>
                 <p className="cta-desc">
-                    Batches start March 20th. Small groups mean limited spots. If this resonates — reach out today.
+                    Batches start 1st April. Small groups mean limited spots. If this resonates — reach out today.
                 </p>
                 <div className="cta-contact">
                     <span className="call-label">CALL NOW</span>

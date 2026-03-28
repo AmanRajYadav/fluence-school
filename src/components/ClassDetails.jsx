@@ -51,11 +51,7 @@ const ClassDetails = () => {
                         </div>
                         <div className="meta-item">
                             <span className="meta-label">Start Date</span>
-                            <span className="meta-value">March 20th</span>
-                        </div>
-                        <div className="meta-item">
-                            <span className="meta-label">Schedule</span>
-                            <span className="meta-value">Mon-Fri | 5-6:30 PM & 6:30-8 PM</span>
+                            <span className="meta-value">1st April</span>
                         </div>
                         <div className="meta-item">
                             <span className="meta-label">Fees</span>
@@ -64,6 +60,7 @@ const ClassDetails = () => {
                     </div>
 
                     <div className="cta-wrapper">
+                        <p className="demo-text" style={{ fontWeight: 'bold', marginBottom: '12px' }}>15 Days Free Demo Starting April 15th</p>
                         <a href="tel:7771000453" className="btn-primary pulse-btn">Call 777-1000-453 to Enquire</a>
                         <p className="address">Rajaswa Colony, Near Mark Hospital, Sarkanda, Bilaspur</p>
                     </div>

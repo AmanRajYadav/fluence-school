@@ -22,8 +22,8 @@ const Hero = () => {
                             <span className="stat-label">Students / Batch</span>
                         </div>
                         <div className="stat-item glass-panel">
-                            <span className="stat-value">20th</span>
-                            <span className="stat-label">March Start</span>
+                            <span className="stat-value">1st</span>
+                            <span className="stat-label">April Start</span>
                         </div>
                     </div>
 
@@ -31,7 +31,7 @@ const Hero = () => {
                         <a href="#philosophy" className="btn-primary">Explore Philosophy</a>
                         <div className="hero-contact glass-panel">
                             <span className="call-text">To Enquire Call:</span>
-                            <span className="call-number">7999-502-978</span>
+                            <span className="call-number"><a href="tel:7771000453" style={{color: 'inherit', textDecoration: 'none'}}>777-1000-453</a></span>
                         </div>
                     </div>
                 </div>
