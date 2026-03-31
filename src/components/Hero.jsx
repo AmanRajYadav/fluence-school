@@ -13,7 +13,7 @@ const Hero = () => {
                         STOP MEMORIZING.<br />START <span className="highlight">UNDERSTANDING.</span>
                     </h1>
                     <p className="hero-subtitle animate-fade-up delay-200">
-                        A state-of-the-art Class 10 math experience built from first principles. We don't teach tricks—we build thinkers.
+                        A state-of-the-art Class 9 & 10 math experience built from first principles. We don't teach tricks—we build thinkers.
                     </p>
 
                     <div className="hero-stats animate-fade-up delay-300">
