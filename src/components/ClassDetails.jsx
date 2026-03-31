@@ -63,6 +63,21 @@ const ClassDetails = () => {
                         <p className="demo-text" style={{ fontWeight: 'bold', marginBottom: '12px' }}>15 Days Free Demo Starting April 1st</p>
                         <a href="tel:7771000453" className="btn-primary pulse-btn">Call 777-1000-453 to Enquire</a>
                         <p className="address">Rajaswa Colony, Near Mark Hospital, Sarkanda, Bilaspur</p>
+                        <div className="google-map-container" style={{ marginTop: '20px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
+                            <iframe 
+                                title="Fluence School Location"
+                                src="https://maps.google.com/maps?q=Rajaswa%20Colony,%20Near%20Mark%20Hospital,%20Sarkanda,%20Bilaspur&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                                width="100%" 
+                                height="250" 
+                                style={{ border: 0 }} 
+                                allowFullScreen="" 
+                                loading="lazy" 
+                                referrerPolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <a href="https://share.google/YVF8ZyPMtpmTBK8VN" target="_blank" rel="noopener noreferrer" className="google-review-link" style={{ display: 'inline-block', marginTop: '15px', color: 'var(--primary-color)', textDecoration: 'underline', fontWeight: 'bold' }}>
+                            ⭐ View Profile & Reviews on Google
+                        </a>
                     </div>
                 </div>
 
