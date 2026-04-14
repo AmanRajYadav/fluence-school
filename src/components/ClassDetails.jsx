@@ -55,7 +55,10 @@ const ClassDetails = () => {
                         </div>
                         <div className="meta-item">
                             <span className="meta-label">Fees</span>
-                            <span className="meta-value">2500/- per month</span>
+                            <span className="meta-value">
+                                <span style={{ textDecoration: 'line-through', color: '#ff4d4d' }}>2500/-</span>
+                                <span style={{ color: '#00cc66', marginLeft: '8px', fontWeight: 'bold' }}>2000/- per month</span>
+                            </span>
                         </div>
                     </div>
 
